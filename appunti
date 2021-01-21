@@ -1,0 +1,21 @@
+git remote add origin https://github.com/sanmos/wekil-cars-be.git
+
+
+72
+
+I was getting the same error
+
+ERROR: Repository not found.   
+fatal: The remote end hung up unexpectedly
+and I had created the repository on Github and cloned it locally.
+
+I was able to solve by opening .git/config and removing the [remote "origin"] section.
+
+[remote "origin"]   
+   url = git@github.com:alexagui/my_project.git  
+   fetch = +refs/heads/*:refs/remotes/origin/*
+then I ran the following (again)
+
+git remote add origin git@github.com:alexagui/my_project.git  
+git push -u origin master
+and this time I was able to push to the repository.
